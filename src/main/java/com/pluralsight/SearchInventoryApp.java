@@ -4,18 +4,26 @@ import java.util.ArrayList;
 
 public class SearchInventoryApp {
     public static void main(String[] args) {
-        ArrayList<Product> inventory = getInventory();
+        ArrayList<Product> products = getProducts();
         System.out.println("We carry the following inventory: ");
 
         //loop to go thru the ArrayList
-        for (int i = 0; i < inventory.size(); i++) {
-            Product p = inventory.get(i);
+        //    counter ;  limit     ; iteration update
+        for (int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
             System.out.printf("id: %d %s - Price: $%.2f%n",
-                    p.getId(), p.getName(), p.getPrice());
+                    product.getId(), product.getName(), product.getPrice());
+        }
+
+        //dataType(class) varName: array name
+        for(Product product: products){
+
+            System.out.printf( ". id: %d %s - Price: $%.2f%n",
+                    product.getId(), product.getName(), product.getPrice());
         }
     }
 
-    public static ArrayList<Product> getInventory() {
+    public static ArrayList<Product> getProducts() {
 
         ArrayList<Product> inventory = new ArrayList<Product>();
         // this method loads product objects into inventory
